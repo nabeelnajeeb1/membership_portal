@@ -8,17 +8,25 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "member",
-  "member_name",
-  "membership_type",
-  "income_account",
-  "data_6",
+  "full_name",
+  "email",
+  "date_of_birth",
+  "gender",
+  "column_break_6",
   "status",
+  "mobile",
+  "blood_group",
+  "country",
+  "data_6",
+  "membership_type",
+  "amount",
+  "income_account",
+  "column_break_15",
+  "period",
   "valid_from",
   "valid_to",
-  "amount",
-  "amended_from",
-  "cost_center"
+  "cost_center",
+  "amended_from"
  ],
  "fields": [
   {
@@ -30,20 +38,6 @@
    "read_only": 1
   },
   {
-   "fetch_from": "member.full_name",
-   "fieldname": "member_name",
-   "fieldtype": "Read Only",
-   "label": "Member Name"
-  },
-  {
-   "fieldname": "member",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Member",
-   "options": "Member",
-   "reqd": 1
-  },
-  {
    "fetch_from": "member.membership_type",
    "fieldname": "membership_type",
    "fieldtype": "Link",
@@ -52,14 +46,16 @@
   },
   {
    "fetch_from": "membership_type.income_account",
+   "fetch_if_empty": 1,
    "fieldname": "income_account",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Income Account",
    "options": "Account"
   },
   {
    "fieldname": "data_6",
-   "fieldtype": "Column Break"
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "status",
@@ -68,29 +64,24 @@
    "options": "New\nPending\nCancelled\nExpired\nActive\nRenewed"
   },
   {
+   "default": "Today",
    "fetch_from": "member.member_since",
    "fieldname": "valid_from",
    "fieldtype": "Date",
-   "hidden": 1,
    "label": "Valid From"
   },
   {
    "fetch_from": "member.membership_expiry_date",
    "fieldname": "valid_to",
    "fieldtype": "Date",
-   "hidden": 1,
    "label": "Valid To"
   },
   {
    "fetch_from": "membership_type.amount",
+   "fetch_if_empty": 1,
    "fieldname": "amount",
    "fieldtype": "Data",
    "label": "Amount"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Data",
-   "label": "Amended From"
   },
   {
    "default": "Main - MA",
@@ -99,15 +90,79 @@
    "hidden": 1,
    "label": "cost center",
    "options": "Cost Center"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mobile",
+   "fieldtype": "Data",
+   "label": "Mobile"
+  },
+  {
+   "fieldname": "blood_group",
+   "fieldtype": "Data",
+   "label": "Blood Group"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Membership",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "membership_type.period",
+   "fetch_if_empty": 1,
+   "fieldname": "period",
+   "fieldtype": "Select",
+   "label": "period",
+   "options": "Yearly\nQuarterly\nMonthly"
+  },
+  {
+   "fetch_from": "member.full_name",
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-06-28 21:17:37.532636",
+ "modified": "2022-08-08 16:10:16.414616",
  "modified_by": "Administrator",
  "module": "Membership Portal",
  "name": "Membership",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -139,5 +194,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

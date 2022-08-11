@@ -1,28 +1,20 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:type",
+ "autoname": "field:name1",
  "creation": "2022-03-19 12:11:14.577603",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "type",
+  "name1",
   "amount",
   "income_account",
   "data_4",
-  "duration",
+  "period",
   "benefits"
  ],
  "fields": [
-  {
-   "fieldname": "type",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Type",
-   "reqd": 1,
-   "unique": 1
-  },
   {
    "fieldname": "amount",
    "fieldtype": "Data",
@@ -41,22 +33,32 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "duration",
-   "fieldtype": "Int",
-   "label": "Duration"
-  },
-  {
    "fieldname": "benefits",
    "fieldtype": "Small Text",
    "label": "Benefits"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name ",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "period",
+   "fieldtype": "Select",
+   "label": "Period",
+   "options": "Yearly\nQuarterly\nMonthly"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-24 09:26:55.812241",
+ "modified": "2022-08-08 15:42:30.619246",
  "modified_by": "Administrator",
  "module": "Membership Portal",
  "name": "Membership Type",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -85,5 +87,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

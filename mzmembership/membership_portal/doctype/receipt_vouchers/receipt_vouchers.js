@@ -22,7 +22,7 @@ frappe.ui.form.on("Receipt Vouchers",{
                 frm.set_query("party_type", function(doc) {
                         return {
                                 filters: [
-                                        ["DocType", "name", "in", ["Member"]]
+                                        ["DocType", "name", "in", ["Membership"]]
                                 ]
                         }
                 });
